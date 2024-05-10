@@ -1,0 +1,107 @@
+.tiptap > * + * {
+    margin-top: 0.75em;
+}
+.tiptap {
+    outline: none;
+    border: 1px solid #27272a;
+    padding: 5px;
+    border-radius: 10px;
+    min-height: 30px;
+    margin-top: 10px;
+}
+
+.tiptap ul,
+.tiptap ol {
+    padding: 0 1rem;
+}
+.tiptap ul {
+    list-style: disc;
+}
+.tiptap ol {
+    list-style: decimal;
+}
+
+.tiptap h1,
+.tiptap h2 {
+    line-height: 1.1;
+}
+.tiptap h1 {
+    font-size: 28px;
+}
+.tiptap h2 {
+    font-size: 20px;
+}
+
+.tiptap img {
+    max-width: 100%;
+    height: auto;
+}
+
+.tiptap blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid #919191;
+}
+
+.tiptap hr {
+    border: none;
+    border-top: 2px solid #27272a;
+    margin: 15px 0;
+}
+.tiptap button {
+    display: flex;
+}
+.tiptap a {
+    text-decoration: underline;
+    color: #919191;
+}
+
+
+
+.text-box > * + * {
+    margin-top: 0.75em;
+}
+
+.text-box ul,
+.text-box ol {
+    padding: 0 1rem;
+}
+.text-box ul {
+    list-style: disc;
+}
+.text-box ol {
+    list-style: decimal;
+}
+
+.text-box h1,
+.text-box h2 {
+    line-height: 1.1;
+}
+.text-box h1 {
+    font-size: 28px;
+}
+.text-box h2 {
+    font-size: 20px;
+}
+
+.text-box img {
+    max-width: 100%;
+    height: auto;
+}
+
+.text-box blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid #919191;
+}
+
+.text-box hr {
+    border: none;
+    border-top: 2px solid #27272a;
+    margin: 15px 0;
+}
+.text-box button {
+    display: flex;
+}
+.text-box a {
+    text-decoration: underline;
+    color: #919191;
+}
