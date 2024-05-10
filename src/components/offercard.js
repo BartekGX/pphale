@@ -30,8 +30,8 @@ export default function Offercard({ data }) {
 
     return (
         <Link href={`/${data.reference}`}>
-            <Card className="w-full relative overflow-hidden flex flex-row font-['Tw_Cen_MT_Condensed'] p-2">
-            <div className="md:w-[200px] sm:w-[100px] xsm:w-[60px] w-[50px] overflow-hidden aspect-square relative">
+            <Card className="w-full relative overflow-hidden flex sm:flex-row flex-col font-['Tw_Cen_MT_Condensed'] p-2">
+            <div className="md:w-[200px] sm:w-[100px] w-full overflow-hidden relative">
                 <div className="relative w-full h-full flex justify-center items-center">
                     <img src={photoURL} alt={data.name} className="max-w-full max-h-full rounded-lg object-contain w-[200px] block flex-shrink-0 flex-grow-0"/>
                 </div>
@@ -41,13 +41,13 @@ export default function Offercard({ data }) {
                     <div className="lg:text-4xl md:text-3xl xsm:text-2xl">
                         {truncateText(data.name, 3)}
                     </div>
-                    <div>
+                    <div className="sm:block hidden">
                         <p className="xmd:text-xl sm:text-base sm:text-nowrap">Rawa Mazowiecka</p>
                     </div>
                 </div>
                 <div className="text-end h-full flex justify-between flex-col">
-                    <p className="lg:text-4xl md:text-3xl xsm:text-2xl font-bold">{data.price.toLocaleString()} zł</p>
-                    <p className="xmd:text-xl sm:text-base sm:text-nowrap">aktualizowane {formattedDate}</p>
+                    <p className="lg:text-4xl md:text-3xl xsm:text-2xl text-nowrap font-bold text-end">{data.price.toLocaleString()} zł</p>
+                    <p className="xmd:text-xl sm:text-base sm:text-nowrap sm:block hidden">aktualizowane {formattedDate}</p>
                 </div>
             </div>
         </Card>
