@@ -48,6 +48,21 @@ export default async function page({ params }) {
                                     </div>
                                 )}
                             </Card>
+                            <Card className="lg:w-[400px] w-full block lg:hidden">
+                                <CardHeader>
+                                    <CardTitle className="font-normal text-3xl">{data.name}</CardTitle>
+                                    <div className="flex flex-wrap flex-col">
+                                        <span className="text-gray-400 text-2xl">cena</span>
+                                        <p className="font-medium whitespace-nowrap text-3xl">{data.price.toLocaleString()} zł</p>
+                                    </div>
+                                </CardHeader>
+                                <CardContent>
+                                    <ContactReveal/>
+                                    <div>
+                                        <p className="text-xl mt-2">ostatnio edytowane: {formattedDate}</p>
+                                    </div>
+                                </CardContent>
+                            </Card>
                             <Card>
                                 <CardHeader>
                                     <CardTitle>

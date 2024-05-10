@@ -6,6 +6,7 @@ import {Label} from "@/components/ui/label";
 import {useState} from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function LoginForm() {
     const [login, setLogin] = useState("")
@@ -43,10 +44,10 @@ export default function LoginForm() {
             <div>
                 <Card>
                     <CardHeader className="sm:p-3 p-0">
-                        <div>
-                            <p className="font-bold text-3xl text-center py-5">
-                                AUTO LAND
-                            </p>
+                        <div className="flex justify-center items-center py-4">
+                            <Link href="/">
+                                <img src="/pphale_w.svg" className="h-7" alt="logo p.p. hale"/>
+                            </Link>
                         </div>
                         <CardTitle className="text-center">
                             Zaloguj się

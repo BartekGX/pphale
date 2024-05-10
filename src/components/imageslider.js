@@ -25,7 +25,7 @@ export default function ImageSlider({ urls }) {
 
     return (
         <div
-            className="relative aspect-video group overflow-hidden aspect-w-16 aspect-h-9 w-full"
+            className="relative sm:aspect-video group overflow-hidden sm:aspect-w-16 sm:aspect-h-9 aspect-w-1 aspect-h-1 w-full"
         >
             <div className="flex h-full w-full overflow-hidden rounded-lg relative">
                 {transformedUrls.map((image, index) => {
@@ -49,13 +49,13 @@ export default function ImageSlider({ urls }) {
             </div>
             <button
                 onClick={showPrevImg}
-                className="z-20 absolute group-hover:sm:translate-x-[32px] -left-[32px] translate-x-[32px] h-full flex top-0 justify-center items-center bg-black bg-opacity-50 p-1 opacity-50 hover:opacity-100 transition-all"
+                className="z-20 absolute group-hover:sm:translate-x-[32px] -left-[32px] translate-x-[32px] h-full flex top-0 justify-center items-center bg-black bg-opacity-50 p-1 sm:opacity-50 opacity-30 hover:opacity-100 transition-all"
             >
                 <ChevronLeftIcon className="h-6 w-6 text-white" />
             </button>
             <button
                 onClick={showNextImg}
-                className="z-20 absolute group-hover:sm:-translate-x-[32px] -right-[32px] -translate-x-[32px] h-full flex top-0 justify-center items-center bg-black bg-opacity-50 p-1 opacity-50 hover:opacity-100 transition-all"
+                className="z-20 absolute group-hover:sm:-translate-x-[32px] -right-[32px] -translate-x-[32px] h-full flex top-0 justify-center items-center bg-black bg-opacity-50 p-1 sm:opacity-50 opacity-30 hover:opacity-100 transition-all"
             >
                 <ChevronRightIcon className="h-6 w-6 text-white" />
             </button>
