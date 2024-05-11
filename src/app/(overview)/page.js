@@ -21,8 +21,12 @@ const getData = async () => {
 
 export async function generateMetadata({ params }) {
     const data = await fetch(`${process.env.API_URL}/api/offeru/meta`).then((res) => res.json())
+    console.log(data)
     let products = ""
-    if (data && data.name) products = data?.map((item, index) => `${index + 1}. ${item.name}`).join(', ');
+    data.forEach((product, index) => {
+        products += `${index + 1}. ${product.name} | cena ${product.price}zł\n`;
+    });
+    console.log(products)
     return {
         title: "Lista konstrukcji - P.P.HALE",
         applicationName: "P.P.HALE",
