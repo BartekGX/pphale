@@ -18,6 +18,25 @@ const getData = async () => {
         return []
     }
 }
+
+export async function generateMetadata({ params }) {
+    const data = await fetch(`${process.env.API_URL}/api/offeru/meta`).then((res) => res.json())
+    const products = data.map((item, index) => `${index + 1}. ${item.title}`).join(', ');
+    return {
+        title: "Lista konstrukcji - P.P.HALE",
+        applicationName: "P.P.HALE",
+        siteName: 'P.P.HALE - PRODUCENT KONSTRUKCJI STALOWYCH',
+        description: products,
+        locale: 'pl_PL',
+        openGraph: {
+            images: ["./pphalelogomin.svg"],
+        },
+        type: 'website',
+        keywords: "producent konstrukcja stalowa hale solidne wytrzymale dobre cena stalowe wiaty Rawa Mazowiecka na zamówienie polski produkt carport magazyn zadaszenie na pojazdy maszyny skrzynio-palety fotowoltawiczna Wójcik Piotr indywidualne tanio"
+    }
+}
+
+
 export default async function Home() {
     const data = await getData()
     return (

@@ -7,7 +7,7 @@ export async function GET(req, { params }) {
     const { item } = params
     try {
         await connectDB()
-        const offer = await Offer.findOne({ isPublic: true, reference: item}, {photo: 0, photos: 0, createdAt: 0 , updatedAt: 0})
+        const offer = await Offer.findOne({ isPublic: true, reference: item}, { photos: 0, createdAt: 0 , updatedAt: 0})
         return NextResponse.json(offer)
     } catch (e) {
         console.log(e)
