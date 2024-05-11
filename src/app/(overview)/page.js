@@ -21,7 +21,7 @@ const getData = async () => {
 
 export async function generateMetadata({ params }) {
     const data = await fetch(`${process.env.API_URL}/api/offeru/meta`).then((res) => res.json())
-    const products = data.map((item, index) => `${index + 1}. ${item.title}`).join(', ');
+    const products = data?.map((item, index) => `${index + 1}. ${item.title}`).join(', ');
     return {
         title: "Lista konstrukcji - P.P.HALE",
         applicationName: "P.P.HALE",
