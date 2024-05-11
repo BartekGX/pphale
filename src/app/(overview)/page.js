@@ -28,9 +28,6 @@ export async function generateMetadata({ params }) {
         siteName: 'P.P.HALE - PRODUCENT KONSTRUKCJI STALOWYCH',
         description: products,
         locale: 'pl_PL',
-        openGraph: {
-            images: ["./pphalelogomin.svg"],
-        },
         type: 'website',
         keywords: "producent konstrukcja stalowa hale solidne wytrzymale dobre cena stalowe wiaty Rawa Mazowiecka na zamówienie polski produkt carport magazyn zadaszenie na pojazdy maszyny skrzynio-palety fotowoltawiczna Wójcik Piotr indywidualne tanio"
     }
