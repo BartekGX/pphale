@@ -4,11 +4,22 @@ import "../../../components/tiptapstyle.css"
 import Link from "next/link";
 import ImageSlider from "@/components/imageslider";
 import ContactReveal from "@/components/contactReveal";
+import Myhead from "@/components/head";
+import striptags from "striptags";
+
+
+export async function generateMetadata({ params }) {
+    const product = await fetch(`${process.env.API_URL}/api/offeru/meta/${params.name}`).then((res) => res.json())
+    return {
+        title: product.name,
+        description: striptags(product.description)
+    }
+}
 
 const getData = async (name) => {
-    const apiURL = process.env.API_URL
+    if(!name) return false
     try {
-        const res = await fetch(`${apiURL}/api/offeru/${name}`, {
+        const res = await fetch(`${process.env.API_URL}/api/offeru/${name}`, {
             method: "GET",
             cache: "no-store"
         })
@@ -16,32 +27,43 @@ const getData = async (name) => {
             console.log("Błąd pobierania danych")
             return false
         }
-        const data = await res.json()
-        return data[0]
+        return await res.json()
     } catch (e) {
         console.log(e)
         return false
     }
 }
-export default async function page({ params }) {
+const formatDate = (toFormat) => {
+    try {
+        const updatedAtFromMongoDB = new Date(toFormat);
+            return `${updatedAtFromMongoDB.getDate().toString().padStart(2, '0')}.` +
+            `${(updatedAtFromMongoDB.getMonth() + 1).toString().padStart(2, '0')}.` +
+            `${updatedAtFromMongoDB.getFullYear()} ` +
+            `${updatedAtFromMongoDB.getHours().toString().padStart(2, '0')}:` +
+            `${updatedAtFromMongoDB.getMinutes().toString().padStart(2, '0')}`;
+    } catch (error) {
+        console.error("Błąd podczas formatowania daty:", error);
+        return "brak info";
+    }
+
+}
+export default async function Page({ params }) {
     const { name } = params
     const data = await getData(name)
-    const allPhotos = [data.photo, ...data.photos]
-    const updatedAtFromMongoDB = new Date(data.updatedAt);
-    const formattedDate = `${updatedAtFromMongoDB.getDate().toString().padStart(2, '0')}.` +
-        `${(updatedAtFromMongoDB.getMonth() + 1).toString().padStart(2, '0')}.` +
-        `${updatedAtFromMongoDB.getFullYear()} ` +
-        `${updatedAtFromMongoDB.getHours().toString().padStart(2, '0')}:` +
-        `${updatedAtFromMongoDB.getMinutes().toString().padStart(2, '0')}`;
+    let forFormat = 0
+    if (data) {
+        forFormat = data.updatedAt
+    }
+    const formattedDate = formatDate(forFormat)
     return (
-            <div className="flex relative sm:px-3 px-0 py-3 gap-2 md:flex-row flex-col-reverse w-full font-['Tw_Cen_MT_Condensed']">
-
+            <div className="flex relative sm:px-3 px-0 py-3 gap-2 md:flex-row flex-col-reverse w-full font-[TwCenMTCondensed]">
+              <Myhead/>
                 {data ? (
                     <div className="grid lg:grid-cols-[1fr_400px] grid-cols-1 gap-3 w-full">
                         <div className="w-full flex flex-col gap-2 row-start-2 lg:row-start-auto">
                             <Card className="flex justify-center">
                                 {data.photos.length + data.photo.length > 0 ? (
-                                    <ImageSlider urls={allPhotos}/>
+                                    <ImageSlider urls={[data.photo, ...data.photos]}/>
                                 ) : (
                                     <div className="py-32">
                                         brak zdjęć

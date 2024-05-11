@@ -1,7 +1,10 @@
 @tailwind base;
   @tailwind components;
   @tailwind utilities;
-
+@font-face {
+  font-family: 'Tw-Cen-MT-Condensed-Font';
+  src: url('/fonts/Tw-Cen-MT-Condensed-Font.ttf');
+}
   @layer base {
     :root {
       --background: 0 0% 100%;
