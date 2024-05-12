@@ -19,14 +19,12 @@ const getData = async () => {
     }
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata() {
     const data = await fetch(`${process.env.API_URL}/api/offeru/meta`).then((res) => res.json())
-    console.log(data)
     let products = ""
     data.forEach((product, index) => {
         products += `${index + 1}. ${product.name} | cena ${product.price}zł\n`;
     });
-    console.log(products)
     return {
         title: "Lista konstrukcji - P.P.HALE",
         applicationName: "P.P.HALE",

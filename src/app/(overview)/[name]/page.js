@@ -11,13 +11,13 @@ import striptags from "striptags";
 export async function generateMetadata({ params }) {
     const product = await fetch(`${process.env.API_URL}/api/offeru/meta/${params.name}`).then((res) => res.json())
     return {
-        title: product.name,
+        title: product?.name || "zły odnościk",
         applicationName: "P.P.HALE",
         siteName: 'P.P.HALE - PRODUCENT KONSTRUKCJI STALOWYCH',
-        description: striptags(product.description),
+        description: striptags(product?.description) || "P.P.HALE - PRODUCENT KONSTRUKCJI STALOWYCH",
         locale: 'pl_PL',
         openGraph: {
-            images: [product.image],
+            images: [product?.image],
         },
         type: 'website',
         keywords: "producent konstrukcja stalowa hale solidne wytrzymale dobre cena stalowe wiaty Rawa Mazowiecka na zamówienie polski produkt carport magazyn zadaszenie na pojazdy maszyny skrzynio-palety fotowoltawiczna Wójcik Piotr indywidualne"
@@ -65,7 +65,6 @@ export default async function Page({ params }) {
     const formattedDate = formatDate(forFormat)
     return (
             <div className="flex relative sm:px-3 px-0 py-3 gap-2 md:flex-row flex-col-reverse w-full font-[TwCenMTCondensed]">
-              <Myhead/>
                 {data ? (
                     <div className="grid lg:grid-cols-[1fr_400px] grid-cols-1 gap-3 w-full">
                         <div className="w-full flex flex-col gap-2 row-start-2 lg:row-start-auto">
