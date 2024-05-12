@@ -18,7 +18,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        "TwCenMTCondensed": ["Tw-Cen-MT-Condensed-Font"]
+        TwCenMTCondensed: ["Tw-Cen-MT-Condensed-Font"]
       },
       screens: {
         "xsm": "400px",
