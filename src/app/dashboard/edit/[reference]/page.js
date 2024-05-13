@@ -33,15 +33,12 @@ export default  function page({ params }) {
     }, []);
     return (
         <div>
-            {isFetched ?
+            {isFetched ? (
                 data ? (
                     <Dashboardeditbox _data={data}/>
-                        ) : (
-                            <div>brak pobranych danych</div>
-                        )
-
-             : (
-                <div>błąd pobierania danych</div>
+                ) : <div className="w-full text-center">brak takiego ogłoszenia</div>
+            ) : (
+                <div className="w-full text-center">pobieranie danych...</div>
             )}
         </div>
     )

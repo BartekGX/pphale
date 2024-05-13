@@ -87,7 +87,7 @@ export async function DELETE(req) {
     if  (photo.length + photos.length === 0) NextResponse.json({error: "brak zdjęć do usunięcia"}, {status: 400})
     else if (photo.length === 0) photosToDelete = photos
     else if (photos.length === 0) photosToDelete = [photo]
-    else photosToDelete = [...photo, ...photos]
+    else photosToDelete = [photo, ...photos]
     try {
         if (reference !== undefined) {
             await connectDB()

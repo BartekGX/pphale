@@ -61,15 +61,17 @@ export default function Dashboardeditbox({ _data }) {
         await deleteFiles()
         let photo = ""
         let photos = oldFiles
-        if  (file.length > 0)
-            photo = await sendFile(file)
+        if  (file.length > 0) {
+            const photoInTable = await sendFile(file)
+            photo = photoInTable[0]
+        }
         else photo = oldFile
         if (files.length > 0) {
             const newPhotos = await sendFile(files)
             photos = photos.concat(newPhotos)
         }
         const data= {
-            photo: photo[0],
+            photo: photo,
             name: name,
             price: parseInt(price.replace(/\s/g, '')) || 0,
             description: description,
