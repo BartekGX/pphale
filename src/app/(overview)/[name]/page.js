@@ -4,7 +4,6 @@ import "../../../components/tiptapstyle.css"
 import Link from "next/link";
 import ImageSlider from "@/components/imageslider";
 import ContactReveal from "@/components/contactReveal";
-import Myhead from "@/components/head";
 import striptags from "striptags";
 
 
