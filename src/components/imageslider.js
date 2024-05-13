@@ -25,7 +25,7 @@ export default function ImageSlider({ urls }) {
 
     return (
         <div
-            className="relative sm:aspect-video group overflow-hidden sm:aspect-w-16 sm:aspect-h-9 aspect-w-1 aspect-h-1 w-full"
+            className="relative aspect-video group overflow-hidden aspect-w-16 aspect-h-9 w-full"
         >
             <div className="flex h-full w-full overflow-hidden rounded-lg relative">
                 {transformedUrls.map((image, index) => {

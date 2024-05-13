@@ -3,7 +3,7 @@ import { Separator } from "@/components/ui/separator"
 
 export default function Landingbar() {
     return (
-        <div className=" w-full rounded-b-lg border-x-2 border-b-2 border-gray-600 flex justify-end py-3 flex-col">
+        <div className=" w-full border-b-2 border-gray-700 flex justify-end py-3 flex-col">
             <div className="mx-auto">
             <div className="flex justify-center items-center w-full text-2xl font-bold">
                 <Link href="/">
