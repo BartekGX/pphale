@@ -88,11 +88,6 @@
     height: auto;
 }
 
-.text-box blockquote {
-    padding-left: 1rem;
-    border-left: 2px solid #919191;
-}
-
 .text-box hr {
     border: none;
     border-top: 2px solid #27272a;
@@ -104,4 +99,26 @@
 .text-box a {
     text-decoration: underline;
     color: #919191;
+}
+@media (max-device-width: 600px) {
+    .text-box h1 {
+        font-size: 24px;
+    }
+    .text-box h2 {
+        font-size: 16px;
+    }
+    .text-box p {
+        font-size: 16px;
+    }
+}
+@media (max-device-width: 400px) {
+    .text-box h1 {
+        font-size: 16px;
+    }
+    .text-box h2 {
+        font-size: 12px;
+    }
+    .text-box p {
+        font-size: 12px;
+    }
 }

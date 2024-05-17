@@ -28,7 +28,7 @@ export async function generateMetadata() {
     return {
         title: "P.P.HALE PRODUCENT KONSTRUKCJI STALOWYCH",
         siteName: 'P.P.HALE - PRODUCENT KONSTRUKCJI STALOWYCH',
-        description: products,
+        description: "Producent Konstrukcji Stalowych, Piotr Wójcik - Rawa Mazowiecka",
         locale: 'pl_PL',
         type: 'website',
         keywords: "producent konstrukcja stalowa hale solidne wytrzymale dobre cena stalowe wiaty Rawa Mazowiecka na zamówienie polski produkt carport magazyn zadaszenie na pojazdy maszyny skrzynio-palety fotowoltawiczna Wójcik Piotr indywidualne tanio pphale"
@@ -42,10 +42,7 @@ export default async function Home() {
         <main className="flex min-h-screen flex-col items-center font-TwCenMTCondensed">
             <div className="w-full max-w-[1100px]">
                 <div className="w-full pt-2 md:px-0 px-1">
-                    <h1 className="md:text-5xl sm:text-3xl text-2xl font-bold pt-3 text-center">OFERTA PRODUKTÓW</h1>
-                </div>
-                <div className="w-full text-end">
-                    <p className="sm:text-3xl text-2xl">ilość {data.length}</p>
+                    <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold pt-3 text-center">OFERTA PRODUKTÓW</h1>
                 </div>
                 {data.length > 0 ? (
                     <div className="grid grid-cols-1 gap-2 m-2">

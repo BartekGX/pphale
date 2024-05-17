@@ -10,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
       <html lang="pl" className={inter.className}>
-      <body className="font-tw">
+      <body>
               <main>
                   {children}
               </main>

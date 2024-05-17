@@ -40,30 +40,11 @@ const getData = async (name) => {
         return false
     }
 }
-const formatDate = (toFormat) => {
-    try {
-        const updatedAtFromMongoDB = new Date(toFormat);
-            return `${updatedAtFromMongoDB.getDate().toString().padStart(2, '0')}.` +
-            `${(updatedAtFromMongoDB.getMonth() + 1).toString().padStart(2, '0')}.` +
-            `${updatedAtFromMongoDB.getFullYear()} ` +
-            `${updatedAtFromMongoDB.getHours().toString().padStart(2, '0')}:` +
-            `${updatedAtFromMongoDB.getMinutes().toString().padStart(2, '0')}`;
-    } catch (error) {
-        console.error("Błąd podczas formatowania daty:", error);
-        return "brak info";
-    }
-
-}
 export default async function Page({ params }) {
     const { name } = params
     const data = await getData(name)
-    let forFormat = 0
-    if (data) {
-        forFormat = data.updatedAt
-    }
-    const formattedDate = formatDate(forFormat)
     return (
-            <div className="flex relative sm:px-3 px-0 py-3 gap-2 md:flex-row flex-col-reverse w-full font-TwCenMTCondensed">
+            <div className="flex relative sm:px-3 px-0 py-3 gap-2 md:flex-row flex-col-reverse w-full ">
                 {data ? (
                     <div className="grid lg:grid-cols-[1fr_400px] grid-cols-1 gap-3 w-full">
                         <div className="w-full flex flex-col gap-2 row-start-2 lg:row-start-auto">
@@ -76,7 +57,7 @@ export default async function Page({ params }) {
                                     </div>
                                 )}
                             </Card>
-                            <Card className="lg:w-[400px] w-full block lg:hidden">
+                            <Card className="lg:w-[400px] w-full block lg:hidden font-TwCenMTCondensed">
                                 <CardHeader>
                                     <CardTitle className="font-normal text-3xl">{data.name}</CardTitle>
                                     <div className="flex flex-wrap flex-col">
@@ -86,9 +67,6 @@ export default async function Page({ params }) {
                                 </CardHeader>
                                 <CardContent>
                                     <ContactReveal/>
-                                    <div>
-                                        <p className="text-xl mt-2">ostatnio edytowane: {formattedDate}</p>
-                                    </div>
                                 </CardContent>
                             </Card>
                             <Card>
@@ -98,14 +76,14 @@ export default async function Page({ params }) {
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent>
-                                    <div className="text-box text-xl">
+                                    <div className="text-box">
                                         {parser(data.description)}
                                     </div>
                                 </CardContent>
                             </Card>
                         </div>
                         <div className=" h-full">
-                            <Card className="lg:w-[400px] w-full lg:sticky lg:top-2 lg:block hidden">
+                            <Card className="lg:w-[400px] w-full lg:sticky lg:top-2 lg:block hidden font-TwCenMTCondensed">
                                 <CardHeader>
                                     <CardTitle className="font-normal text-3xl">{data.name}</CardTitle>
                                     <div className="flex flex-wrap flex-col">
@@ -115,9 +93,6 @@ export default async function Page({ params }) {
                                 </CardHeader>
                                 <CardContent>
                                     <ContactReveal/>
-                                    <div>
-                                        <p className="text-xl mt-2">ostatnio edytowane: {formattedDate}</p>
-                                    </div>
                                 </CardContent>
                             </Card>
                         </div>
