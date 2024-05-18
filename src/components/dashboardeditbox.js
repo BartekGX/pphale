@@ -7,7 +7,6 @@ import {Input} from "@/components/ui/input";
 import Photodropzone from "@/components/photodropzone";
 import Tiptap from "@/components/tiptap";
 import {useEffect, useState} from "react";
-import MoreInfoBox from "@/components/moreInfoBox";
 import {useRouter} from "next/navigation";
 import imageCompression from "browser-image-compression";
 
