@@ -27,6 +27,8 @@ export default  function page({ params }) {
         }
     }
 
+
+
     const { reference } = params
     useEffect(() => {
         getData(reference)

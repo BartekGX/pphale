@@ -9,6 +9,7 @@ import Tiptap from "@/components/tiptap";
 import {useEffect, useState} from "react";
 import MoreInfoBox from "@/components/moreInfoBox";
 import {useRouter} from "next/navigation";
+import imageCompression from "browser-image-compression";
 
 export default function Dashboardeditbox({ _data }) {
 
@@ -29,11 +30,59 @@ export default function Dashboardeditbox({ _data }) {
         });
     }, []);
 
+    async function compressAndConvertImage(_file) {
+        const options = {
+            maxSizeMB: 1,
+            maxWidthOrHeight: 1920,
+            useWebWorker: true,
+            fileType: 'image/jpeg',
+            initialQuality: 0.85
+        };
+
+        try {
+            const compressedFile = await imageCompression(_file, options);
+            return compressedFile;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    async function compressFiles(_files) {
+        const compressedFiles = [];
+        for (const _file of _files) {
+            const compressedFile = await compressAndConvertImage(_file);
+            compressedFiles.push(compressedFile);
+        }
+        return compressedFiles;
+    }
+
+
+    function chunkArray(array, size) {
+        const result = [];
+        for (let i = 0; i < array.length; i += size) {
+            result.push(array.slice(i, i + size));
+        }
+        return result;
+    }
+
+    async function sendFilesInChunks(_files, chunkSize) {
+        const compressedFiles = await compressFiles(_files);
+        console.log("kompresja", compressedFiles, "kompresja")
+        const chunks = chunkArray(compressedFiles, chunkSize);
+        let allNewPhotos = [];
+
+        for (const chunk of chunks) {
+            const newPhotos = await sendFile(chunk);
+            allNewPhotos = allNewPhotos.concat(newPhotos);
+        }
+
+        return allNewPhotos;
+    }
+
 
     const sendFile = async (fileSF) => {
         const formData = new FormData()
-        fileSF.forEach(file => {
-            formData.append("file", file)
+        fileSF.forEach(_file => {
+            formData.append("file", _file)
         })
         const res = await fetch("/api/s3-upload", {
             method: "POST",
@@ -67,7 +116,7 @@ export default function Dashboardeditbox({ _data }) {
         }
         else photo = oldFile
         if (files.length > 0) {
-            const newPhotos = await sendFile(files)
+            const newPhotos = await sendFilesInChunks(files, 5)
             photos = photos.concat(newPhotos)
         }
         const data= {
@@ -253,7 +302,7 @@ export default function Dashboardeditbox({ _data }) {
                         </CardHeader>
                         <CardContent>
                             <div className="flex gap-2 w-full">
-                                <div className="grid w-full w-full items-center gap-1.5">
+                                <div className="grid w-full items-center gap-1.5">
                                     <Label htmlFor="nazwa">nazwa</Label>
                                     <Input
                                         type="text"
