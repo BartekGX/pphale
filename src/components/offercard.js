@@ -23,7 +23,7 @@ export default function Offercard({ data }) {
                     </div>
                 </div>
                 <div className="text-end h-full flex justify-between flex-col sm:w-auto w-full">
-                    <p className="lg:text-4xl md:text-3xl text-2xl text-nowrap font-bold sm:text-end text-start sm:w-auto w-full">{data.price.toLocaleString()} zł</p>
+                    <p className="lg:text-4xl md:text-3xl text-2xl text-nowrap font-bold sm:text-end text-start sm:w-auto w-full">{data?.price ? data.price.toLocaleString() : "brak informacji"} zł</p>
                 </div>
                 <div className="block sm:hidden w-full text-end">
                     <p className="xmd:text-xl sm:text-base sm:text-nowrap">Rawa Mazowiecka</p>

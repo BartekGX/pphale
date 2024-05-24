@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /login
+Disallow: /dashboard
+
+Sitemap: https://www.pphale.pl/sitemap.xml
