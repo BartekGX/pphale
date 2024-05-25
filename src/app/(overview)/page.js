@@ -28,7 +28,7 @@ export async function generateMetadata() {
     return {
         title: "P.P.HALE PRODUCENT KONSTRUKCJI STALOWYCH",
         siteName: 'P.P.HALE - PRODUCENT KONSTRUKCJI STALOWYCH',
-        description: "Producent Konstrukcji Stalowych, Piotr Wójcik - Rawa Mazowiecka",
+        description: "Producent Konstrukcji Stalowych, Piotr Wójcik - Rawa Mazowiecka. Kontakt: +48 602 22 00 44 | +48 572 37 00 37",
         locale: 'pl_PL',
         type: 'website',
         keywords: "producent konstrukcja stalowa hale solidne wytrzymale dobre cena stalowe wiaty Rawa Mazowiecka na zamówienie polski produkt carport magazyn zadaszenie na pojazdy maszyny skrzynio-palety fotowoltawiczna Wójcik Piotr indywidualne tanio pphale"
