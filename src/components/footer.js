@@ -12,7 +12,7 @@ export default function Footer() {
                                 <p className="md:text-2xl text-xl">AUTO-LAND Piotr Wójcik</p>
                                 <div className="flex items-center gap-1 hover:text-gray-400">
                                     <Link href="https://maps.app.goo.gl/3SB5pTGPmCTKRHkR7" target="_blank">
-                                        <p className="md:text-2xl text-xl">Tulipanowa 2b <br/> 96-200 Rawa Mazowiecka</p>
+                                        <p className="md:text-lg text-base">Tulipanowa 2b <br/> 96-200 Rawa Mazowiecka</p>
                                     </Link>
                                 </div>
                             </div>
