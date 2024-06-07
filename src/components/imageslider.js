@@ -5,7 +5,7 @@ import ImageZoom from "@/components/react-image-zooom";
 
 export default function ImageSlider({ urls }) {
     const transformedUrls = urls.map(url => {
-        return `https://autoland-storage.s3.eu-central-1.amazonaws.com/${url}`
+        return `https://autolandstorage.s3.eu-north-1.amazonaws.com/${url}`
     });
     const [imageIndex, setImageIndex] = useState(0);
 
