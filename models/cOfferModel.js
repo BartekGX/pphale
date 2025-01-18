@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
 
 
 const cOfferSchema= new mongoose.Schema({
@@ -9,6 +9,7 @@ const cOfferSchema= new mongoose.Schema({
         description: String,
         photos: [String],
         isPublic: { type: Boolean, default: false },
+        position: Number,
     },
     {
         timestamps: true

@@ -37,7 +37,12 @@ export default function page() {
                         Opcje
                     </p>
                 </div>
-                <div>
+                <div className="flex items-center gap-2">
+                <Button asChild>
+                        <Link href="/dashboard/positioning">
+                            Pozycjonowanie ogłoszeń
+                        </Link>
+                    </Button>
                     <Button asChild>
                         <Link href="/dashboard/create">
                             Dodaj ogłoszenie
